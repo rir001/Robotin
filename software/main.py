@@ -6,7 +6,7 @@ from time import sleep
 
 from random import randint
 
-import software.parametros as pr
+import parametros as pr
 
 import os
 
