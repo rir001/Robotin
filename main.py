@@ -172,11 +172,18 @@ class MainWindow(QMainWindow):
         self.layout.addWidget(self.face, 3)
 
         self.layout.addWidget(TextBox("sas", self), 1)
-        pixmap = QPixmap('wasil.jpg')
-        pixmap.scaled(300, 300, Qt.AspectRatioMode.KeepAspectRatio)
+        # pixmap = QPixmap('wasil.jpg')
         image_label = QLabel()
-        image_label.setPixmap(pixmap)
+        # image_label.setPixmap(pixmap)
         self.layout.addWidget(image_label, 27)
+        # pixmap = pixmap.scaled(self.layout.itemAt(2).widget().height() , 1000, Qt.AspectRatioMode.KeepAspectRatio)
+        # print(self.layout.itemAt(2).widget().height())
+        # print(self.layout.itemAt(2).widget().width())
+        # pixmap = pixmap.scaled(self.layout.itemAt(2).widget().width() , self.layout.itemAt(2).widget().height(), Qt.AspectRatioMode.IgnoreAspectRatio)
+        # pixmap = pixmap.scaled(100, 1000)
+        # self.layout.itemAt(2).widget().setPixmap(pixmap)
+
+
         # self.layout.setContentsMargins(1, 1, 1, 0)
         self.layout.itemAt(1).widget().hide()
         self.layout.itemAt(2).widget().hide()
