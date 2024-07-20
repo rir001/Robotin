@@ -2,6 +2,8 @@
 
 ## Software
 
+' python main.py '
+
 ### Controles
 
 - Boton 1 -> modo normal
