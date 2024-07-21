@@ -1,0 +1,23 @@
+//multipleupload/templates/index.html
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="row">
+    <form action="/upload-files/" enctype="multipart/form-data" method="post">
+        <div class="mb-3">
+            <label>Upload Files</label>
+            <input class="form-control form-control-lg" name="files" type="file" multiple accept=".jpg, .png">
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary btn-lg">
+        </div>
+    </form>
+    <div class="col-12">
+    {% for rs in show %}
+        <div style="padding:20px;float:left;">
+            <img width="500" src="{{ url_for('images', path=rs) }}">
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock content %}
