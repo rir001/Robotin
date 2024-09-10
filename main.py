@@ -3,7 +3,7 @@ from modules.main_window import MainWindow
 import sys
 
 LLM = False
-FACE_DETECTION = False
+FACE_TRACKING = True
 
 if __name__ == "__main__":
 
@@ -11,14 +11,14 @@ if __name__ == "__main__":
 
     window = MainWindow()
 
-    if FACE_DETECTION:
-        from modules.face_detection import FaceDetection
+    if FACE_TRACKING:
+        from modules.face_tracking import FaceTracking
 
-        facedetection = FaceDetection()
+        faceTracking = FaceTracking()
 
-        window.signal_start_detection.connect(facedetection.start_detection)
-        window.signal_stop_detection.connect(facedetection.stop_detection)
-        facedetection.sender_pose.connect(window.face.face_detectio_target)
+        window.signal_start_tracking.connect(faceTracking.start_tracking)
+        window.signal_stop_tracking.connect(faceTracking.stop_tracking)
+        faceTracking.sender_pose.connect(window.face.face_tracking_target)
 
     if LLM:
         from modules.sst import SpeechToText
