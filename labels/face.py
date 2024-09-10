@@ -135,7 +135,7 @@ class Face(QWidget):
             int(self.pose.y() + (self.target.y() - self.pose.y()) * 0.3)
         )
 
-    def face_detectio_target(self, x, y):
+    def face_tracking_target(self, x, y):
         self.target = QPoint(
             int(self.width()  * x * 0.6 + self.width()  * 0.15),
             int(self.height() * y * 0.8 + self.height() * 0.1)

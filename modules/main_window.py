@@ -11,8 +11,8 @@ from PyQt6.QtWebEngineWidgets import QWebEngineView
 
 class MainWindow(QMainWindow):
 
-    signal_start_detection = pyqtSignal()
-    signal_stop_detection = pyqtSignal()
+    signal_start_tracking = pyqtSignal()
+    signal_stop_tracking = pyqtSignal()
 
     signal_start_listening = pyqtSignal()
     signal_ajust_noise = pyqtSignal()
@@ -37,8 +37,8 @@ class MainWindow(QMainWindow):
         self.webview.load(QUrl("https://v2.ubicate.osuc.dev/map?place=B12"))
         self.webview.hide()
 
-        # self.layout.addWidget(self.face, 3)
-        # self.layout.addWidget(self.webview, 20)
+        self.layout.addWidget(self.face, 3)
+        self.layout.addWidget(self.webview, 20)
 
         self.h_layout.addWidget(self.face, 1)
         self.h_layout.addWidget(self.webview, 1)
@@ -86,10 +86,11 @@ class MainWindow(QMainWindow):
 
         if event.key() == Qt.Key.Key_D:
             self.face.setMouseTracking(False)
-            self.signal_start_detection.emit()
+            self.signal_start_tracking.emit()
+
         if event.key() == Qt.Key.Key_S:
             self.face.setMouseTracking(True)
-            self.signal_stop_detection.emit()
+            self.signal_stop_tracking.emit()
 
         if event.key() == Qt.Key.Key_L:
             self.signal_start_listening.emit()
